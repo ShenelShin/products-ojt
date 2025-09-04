@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SimpApplication.Models;
+using ProductPortal.Models;
 
-namespace SimpApplication.Controllers
+namespace ProductPortal.Controllers
 {
     public class HomeController : Controller
     {

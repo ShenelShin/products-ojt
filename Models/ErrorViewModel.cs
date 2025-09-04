@@ -1,4 +1,4 @@
-namespace SimpApplication.Models
+namespace ProductPortal.Models
 {
     public class ErrorViewModel
     {

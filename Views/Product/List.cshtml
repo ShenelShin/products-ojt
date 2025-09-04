@@ -1,0 +1,28 @@
+@model IEnumerable<ProductPortal.Models.Entities.Product>
+
+<h1>Product List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductID</th>
+            <th>ProductName</th>
+            <th>ProductType</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.ProductID</td>
+            <td>@product.ProductName</td>
+            <td>@product.ProductType</td>
+            <td>@product.Price</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Product" asp-action="Edit" asp-route-id="@product.ProductID">Edit</a>
+                </td>
+        </tr>
+    }
+    </tbody>
+</table>
