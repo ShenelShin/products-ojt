@@ -25,10 +25,6 @@ namespace ProductPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(ProductViewModel viewModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(viewModel);
-            }
 
             var product = new Product
             {
@@ -42,7 +38,9 @@ namespace ProductPortal.Controllers
             await dbContext.SaveChangesAsync();
 
             ViewBag.Message = "Product added successfully!";
-            return View(new ProductViewModel());
+            return RedirectToAction("List");
+
+            
 
 
 
@@ -74,8 +72,62 @@ namespace ProductPortal.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+            public async Task<IActionResult> Delete(int ProductID)
+        {
+            var product = await dbContext.Products.FindAsync(ProductID);
+            if (product != null)
+            {
+                dbContext.Products.Remove(product);
+                await dbContext.SaveChangesAsync();
+            }
+            return RedirectToAction("List");
+            }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProductViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
+            var product = await dbContext.Products.FindAsync(viewModel.ProductID);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            product.ProductName = viewModel.ProductName;
+            product.ProductType = viewModel.ProductType;
+            product.Price = viewModel.Price;
+
+            await dbContext.SaveChangesAsync();
+
+            return RedirectToAction("List");
+        }
+        
+        public async Task<IActionResult> FilterF()
+        {
+            var foodProducts = await dbContext.Products
+                .Where(p => p.ProductType == "Food")
+                .ToListAsync();
+
+            return View(foodProducts); // FilterF.cshtml
+        }
+        public async Task<IActionResult> FilterB()
+        {
+            var foodProducts = await dbContext.Products
+                .Where(p => p.ProductType == "Beverages")
+                .ToListAsync();
+
+            return View(foodProducts); // FilterB.cshtml
+        }
+
+
+
 
 
     }
-    
+
 }
