@@ -2,7 +2,55 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    body {
+        /* Pastel light blue gradient background */
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        min-height: 100vh;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row">
+        <!-- Hero Section -->
+        <div class="col-12 text-center mb-5">
+            <h1 class="fw-bold text-primary">Product Portal</h1>
+            <p class="text-muted fs-5">
+                Manage, track, and organize your products with ease.
+            </p>
+        </div>
+    </div>
+
+    <!-- Action Cards -->
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow border-0 rounded-4 h-100">
+                <div class="card-body text-center p-4">
+                    <h4 class="fw-semibold text-dark">View Products</h4>
+                    <p class="text-muted">
+                        Browse the full list of products in the system.
+                    </p>
+                    <a asp-controller="Product" asp-action="List"
+                       class="btn btn-primary px-4 rounded-pill">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card shadow border-0 rounded-4 h-100">
+                <div class="card-body text-center p-4">
+                    <h4 class="fw-semibold text-dark">Add Product</h4>
+                    <p class="text-muted">
+                        Create and register a new product quickly.
+                    </p>
+                    <a asp-controller="Product" asp-action="Add"
+                       class="btn btn-outline-primary px-4 rounded-pill">Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Info -->
+    
+    </div>
 </div>

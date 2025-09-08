@@ -1,48 +1,90 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
+﻿/* General Link Styles */
 a {
-  color: #0077cc;
+    color: #0d6efd; /* Bootstrap primary blue */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 
+    a:hover {
+        color: #0a58ca;
+        text-decoration: underline;
+    }
+
+    /* Navbar Brand */
+    a.navbar-brand {
+        white-space: nowrap;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #0d6efd !important;
+    }
+
+/* Buttons */
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background: linear-gradient(135deg, #3b82f6, #2563eb); /* gradient blue */
+    border: none;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #1e40af);
+        transform: translateY(-2px);
+    }
+
+.btn-outline-primary {
+    border: 2px solid #3b82f6;
+    color: #2563eb;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
 }
 
+    .btn-outline-primary:hover {
+        background-color: #3b82f6;
+        color: #fff;
+    }
+
+/* Navigation Pills */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #2563eb;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+/* Borders */
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #dee2e6;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #dee2e6;
 }
 
+/* Shadow Utility */
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .1);
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
+/* Footer */
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #f8fafc;
+    color: #6b7280;
+    border-top: 1px solid #e5e7eb;
+    line-height: 60px;
+    font-size: 0.9rem;
+}
+
+/* Policy button */
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 16px;
 }
